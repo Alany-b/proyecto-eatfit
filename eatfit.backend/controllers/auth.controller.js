@@ -1,6 +1,9 @@
 import db from '../models/index.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import sequelize from '../config/database.js';
+import { Op } from 'sequelize';
+
 
 const User = db.User;
 
@@ -9,14 +12,38 @@ export const register = async (req, res) => {
   const { username, email, password } = req.body;
   
   try {
-    // Encriptar contraseña
+     // 1️⃣ Verificar si el email ya existe
+    const existingEmail = await User.findOne({ where: { email } });
+    if (existingEmail) {
+      return res.status(400).json({ error: "El email ya está registrado" });
+    }
+
+    // 2️⃣ Verificar si el username ya existe
+    const existingUsername = await User.findOne({ where: { username } });
+    if (existingUsername) {
+      return res.status(400).json({ error: "El nombre de usuario ya está en uso" });
+    }
+
+    // 3️⃣ Hashear contraseña
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    // 4️⃣ Crear usuario
     const newUser = await User.create({
       username,
       email,
-      password: hashedPassword
+      password: hashedPassword,
     });
+
+    res.status(201).json({
+      message: "Usuario registrado exitosamente",
+      user: {
+        id: newUser.id,
+        username: newUser.username,
+        email: newUser.email,
+        createdAt: newUser.createdAt
+      }
+    });
+
 
     res.status(201).json({ message: 'Usuario registrado exitosamente', user: newUser });
   } catch (error) {
@@ -40,8 +67,13 @@ export const login = async (req, res) => {
     // Generar token
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-    res.json({ message: 'Inicio de sesión exitoso', token });
+   
+    res.status(200).json({ message: "Inicio de sesión exitoso", token });
   } catch (error) {
-    res.status(500).json({ error: 'Error en el servidor' });
+    console.error("❌ Error en login:", error);
+    res.status(500).json({
+      error: "Error en el servidor",
+      details: error.message // 👈 Esto te dirá el motivo real
+    });
   }
 };
