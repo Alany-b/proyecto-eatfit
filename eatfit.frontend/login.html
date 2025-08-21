@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iniciar Sesión - Eatfit</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body class="bg-light">
 
@@ -19,38 +18,10 @@
         <label>Contraseña</label>
         <input type="password" class="form-control" name="password" required>
       </div>
-      <button type="submit" class="btn btn-success w-100">Entrar</button>
+      <button class="btn btn-success w-100">Entrar</button>
     </form>
   </div>
 
-  <!-- Script para conectarse al backend -->
-  <script>
-    document.getElementById("loginForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const email = e.target.email.value;
-      const password = e.target.password.value;
-
-      try {
-        const res = await fetch("http://localhost:3000/api/auth/login63", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, password })
-        });
-
-        const data = await res.json();
-
-        if (res.ok) {
-          localStorage.setItem("token", data.token);
-          alert("Inicio de sesión exitoso");
-          window.location.href = "profile.html";
-        } else {
-          alert(data.message || "Error en inicio de sesión");
-        }
-      } catch (error) {
-        alert("No se pudo conectar con el servidor");
-      }
-    });
-  </script>
+  <script src="assets/js/auth.js"></script>
 </body>
 </html>
