@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iniciar Sesión - Eatfit</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-<body class="bg-light">
+<body>
+    <form action="" method="post">
+        <div>
+            <div>
+            <input type="text" name="Username" id="Username" placeholder="Username" required>
+            <label for="Username"></label>
+             </div>
+        <div>
+            <input type="email" name="Email" id="Email" placeholder="Email" required>
+            <label for="Email"></label>
+        </div>
+            <div>
+                  <input type="password" name="Password" id="Password" placeholder="Password" required>
+            <label for="Password"></label>
+            </div>
+          
+        </div>
+        
 
-  <div class="container mt-5">
-    <h2 class="text-center mb-4">Iniciar Sesión</h2>
-    <form id="loginForm" class="card p-4 shadow">
-      <div class="mb-3">
-        <label>Email</label>
-        <input type="email" class="form-control" name="email" required>
-      </div>
-      <div class="mb-3">
-        <label>Contraseña</label>
-        <input type="password" class="form-control" name="password" required>
-      </div>
-      <button class="btn btn-success w-100">Entrar</button>
+
     </form>
-  </div>
-
-  <script src="assets/js/auth.js"></script>
 </body>
 </html>
