@@ -1,9 +1,9 @@
 import express from 'express';
 import sequelize from './eatfit.backend/config/database.js';
+import { startDB } from './eatfit.backend/config/database.js';
 import dotenv from 'dotenv';
-import db from './eatfit.backend/models/index.js';
 import authRoutes from './eatfit.backend/routes/auth.routes.js';
-import userRoutes from "./eatfit.backend/routes/user.routes.js";
+import userRoutes from "./eatfit.backend/routes/users.routes.js";
 
 dotenv.config();
 
@@ -53,3 +53,7 @@ app.listen(PORT, () => {
     console.log(`✅ Servidor corriendo en  http://localhost:${PORT}`);
 }
 );
+app.listen(PORT,async () => {
+  await startDB();
+  console.log(`Servidor corriendo en el puerto ${PORT}`)
+})
