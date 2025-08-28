@@ -1,0 +1,121 @@
+/* General Body and Font Styles */
+body {
+    background-color: #f7fcf9; /* A very light green/mint color for a fresh feel */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A clean, modern font */
+    color: #333; /* Dark gray for text for good readability */
+}
+
+/* Header Styles */
+header {
+    background-color: #e0f2f1; /* A light, calming teal */
+    color: #004d40; /* A dark green for contrast */
+    padding: 20px 0;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    background-color: #b2dfdb !important; /* A slightly darker teal for the nav bar */
+    border-bottom: 2px solid #80cbc4; /* Subtle bottom border */
+}
+
+.navbar-brand, .nav-link {
+    color: #004d40 !important;
+    font-weight: 500;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    border-bottom: 2px solid #00796b; /* Highlight active link */
+}
+
+/* Main Content Section */
+main {
+    padding: 40px 0;
+    text-align: center;
+}
+
+section div {
+    background-color: #ffffff; /* A clean white background for the content box */
+    padding: 30px;
+    border-radius: 15px; /* Softer, rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* A subtle shadow for depth */
+    max-width: 800px;
+    margin: auto;
+}
+
+h1 {
+    color: #2e7d32; /* A vibrant green for the main heading */
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #4caf50; /* A classic, positive green */
+    border-color: #4caf50;
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 30px; /* Pill-shaped buttons */
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #388e3c; /* Darker green on hover */
+    border-color: #388e3c;
+}
+
+.btn-secondary {
+    background-color: #81c784; /* A lighter, complementary green */
+    border-color: #81c784;
+    color: #fff;
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #66bb6a; /* Darker on hover */
+    border-color: #66bb6a;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #c8e6c9; /* Light green footer */
+    padding: 15px 0;
+    color: #333;
+    font-size: 0.9rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+/* Custom CSS for a smaller navbar */
+.navbar {
+    padding-top: 0.25rem; /* Reduced top padding */
+    padding-bottom: 0.25rem; /* Reduced bottom padding */
+    min-height: 45px; /* Set a minimum height to ensure it's not too small */
+}
+
+.navbar-nav .nav-link {
+    font-size: 0.9rem; /* Smaller font size for the links */
+    padding-top: 0.5rem; /* Reduced vertical padding for links */
+    padding-bottom: 0.5rem;
+}
+
+.navbar-brand {
+    font-size: 1.1rem; /* Smaller font size for the brand name */
+    padding-top: 0.25rem; /* Align brand with links */
+    padding-bottom: 0.25rem;
+}
