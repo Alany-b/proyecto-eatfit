@@ -1,12 +1,5 @@
-import db from '../models/index.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import sequelize from '../config/database.js';
-import { Op } from 'sequelize';
-
-
-const User = db.User;
-
 // Registro
 export const register = async (req, res) => {
   const { username, email, password } = req.body;
